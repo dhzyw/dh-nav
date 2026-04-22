@@ -1,6 +1,6 @@
 <?php
 /**
- * 大海导航 - Admin Import Page
+ * AI Navigator Hub - Admin Import Page
  *
  * @package AI_Navigator_Hub
  */
@@ -747,8 +747,8 @@ function ai_navigator_settings_page() {
         update_option('ai_navigator_copyright', sanitize_text_field($_POST['copyright'] ?? ''));
         update_option('ai_navigator_contact_info', wp_kses_post($_POST['contact_info'] ?? ''));
         update_option('ai_navigator_friend_links', wp_kses_post($_POST['friend_links'] ?? ''));
-        update_option('ai_navigator_head_js', $_POST['head_js'] ?? '');
-        update_option('ai_navigator_footer_js', $_POST['footer_js'] ?? '');
+        update_option('ai_navigator_head_js', wp_unslash($_POST['head_js'] ?? ''));
+        update_option('ai_navigator_footer_js', wp_unslash($_POST['footer_js'] ?? ''));
 
         echo '<div class="notice notice-success is-dismissible"><p>设置已保存！</p></div>';
     }
